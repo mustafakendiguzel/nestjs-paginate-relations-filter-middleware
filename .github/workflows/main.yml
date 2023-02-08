@@ -13,8 +13,8 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: 18
-          registry-url: 'https://registry.npmjs.org/'
-          scope: '@mustafakendiguzel'
+          registry-url: "https://registry.npmjs.org/"
+          scope: "@mustafakendiguzel"
       - run: npm install
       - run: npm publish
         env:
