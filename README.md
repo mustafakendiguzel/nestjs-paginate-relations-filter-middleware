@@ -76,7 +76,7 @@ export class AppModule {
 ```bash
 @Get()
   @ApiQuery({ name: 'relations', required: false, type: [String], isArray: true }) // For Swagger
-  findAll(@Paginate() query: PaginateQuery, @Relations() relation: any) {
+  findAll(@Paginate() query: PaginateQuery, @RelationDecorator() relation: any) {
     return this.patientGdprService.findAll(query, relation);
   }
 ```
