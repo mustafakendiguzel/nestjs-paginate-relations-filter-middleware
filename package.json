@@ -1,6 +1,6 @@
 {
   "name": "nestjs-paginate-relations-filter-middleware",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "An enhanced middleware for capturing unrelated filters for nestjs-paginate lib",
   "main": "./dist/index.js",
   "directories": {
@@ -9,7 +9,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "rimraf dist && tsc",
-    "publish": "npm run build"
+    "prepublish": "npm run build"
   },
   "publishConfig": {
     "access": "public",
