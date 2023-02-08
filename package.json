@@ -8,6 +8,13 @@
     "build": "rimraf dist && tsc",
     "prepublish": "npm run build"
   },
+  "keywords": [
+    "nestjs",
+    "nestjs-paginate",
+    "nestjs-query",
+    "nestjs-paginate-filter",
+    "nestjs-paginate-relation-filter"
+  ],
   "publishConfig": {
     "access": "public"
   },
