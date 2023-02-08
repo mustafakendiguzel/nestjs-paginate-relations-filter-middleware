@@ -1,6 +1,6 @@
 # nestjs-paginate-relations-filter-middleware
 
-An enhanced middleware for capturing unrelated filters in nestjs-paginate page
+An enhanced middleware for capturing unrelated filters for nestjs-paginate lib
 
 [![npm version](https://img.shields.io/npm/v/nestjs-paginate-relations-filter-middleware)](https://www.npmjs.com/package/nestjs-paginate-relations-filter-middleware)
 [![npm download by month](https://img.shields.io/npm/dm/nestjs-paginate-relations-filter-middleware)](https://npmcharts.com/compare/nestjs-paginate-relations-filter-middleware?minimal=true)
