@@ -9,8 +9,7 @@
     "prepublish": "npm run build"
   },
   "publishConfig": {
-    "access": "public",
-    "registry": "https://npm.pkg.github.com/@mustafakendiguzel"
+    "access": "public"
   },
   "repository": {
     "type": "git",
