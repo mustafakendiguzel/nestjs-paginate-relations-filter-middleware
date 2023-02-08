@@ -2,9 +2,9 @@
   "name": "nestjs-paginate-relations-filter-middleware",
   "version": "1.0.0",
   "description": "An enhanced middleware for capturing unrelated filters for nestjs-paginate lib",
-  "main": "index.js",
+  "main": "./dist/",
   "directories": {
-    "lib": "lib"
+    "lib": "./dist/index.js"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
