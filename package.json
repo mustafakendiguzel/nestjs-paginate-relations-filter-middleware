@@ -1,5 +1,5 @@
 {
-  "name": "@mustafakendiguzel/nestjs-paginate-relations-filter-middleware",
+  "name": "nestjs-paginate-relations-filter-middleware",
   "version": "1.0.0",
   "description": "An enhanced middleware for capturing unrelated filters for nestjs-paginate lib",
   "main": "./dist/index.js",
@@ -12,7 +12,7 @@
     "publish": "npm run build"
   },
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com/@mustafakendiguzel"
+    "access": "public"
   },
   "repository": {
     "type": "git",
