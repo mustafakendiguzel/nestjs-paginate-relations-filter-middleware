@@ -58,6 +58,30 @@ $ import { RelationFilterMiddleware,RelationDecorator } from 'nestjs-paginate-re
 
 ```
 
+
+## Injecting MiddleWare
+
+```bash
+export class AppModule {
+  configure(consumer: MiddlewareConsumer): void {
+    consumer.apply(RelationFilterMiddleware).forRoutes({
+      path: '*',
+      method: RequestMethod.ALL,
+    });
+  }
+}
+```
+
+## How to Use In Controller
+
+```bash 
+@Get()
+  @ApiQuery({ name: 'relations', required: false, type: [String], isArray: true }) // For Swagger
+  findAll(@Paginate() query: PaginateQuery, @RelationDecorator() relation: any) {
+    return this.patientGdprService.findAll(query, relation);
+  }
+```
+
 ## More Options
 
 ## For multi relation Access
@@ -75,29 +99,6 @@ Send it separated by commas.
 ```
 
 Send it separated by ampersand. You can find more details with [nestjs-paginate](https://www.npmjs.com/package/nestjs-paginate) lib.
-
-## Injecting MiddleWare
-
-```bash
-export class AppModule {
-  configure(consumer: MiddlewareConsumer): void {
-    consumer.apply(RelationFilterMiddleware).forRoutes({
-      path: '*',
-      method: RequestMethod.ALL,
-    });
-  }
-}
-```
-
-## How to Use In Controller
-
-```bash
-@Get()
-  @ApiQuery({ name: 'relations', required: false, type: [String], isArray: true }) // For Swagger
-  findAll(@Paginate() query: PaginateQuery, @RelationDecorator() relation: any) {
-    return this.patientGdprService.findAll(query, relation);
-  }
-```
 
 ## Stay in touch
 
