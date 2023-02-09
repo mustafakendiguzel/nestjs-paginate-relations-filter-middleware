@@ -84,7 +84,7 @@ export class AppModule {
 
 ## More Options
 
-### * For multi relation Access
+### * For Multi Relation Access
 
 ```bash
   http://localhost:3000/patient-consent?relations=consentForm,patient,surrogate
