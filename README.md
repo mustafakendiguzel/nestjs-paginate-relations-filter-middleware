@@ -1,19 +1,23 @@
 # Nestjs-Paginate-Relations-Filter-Middleware
 
+
 An enhanced middleware for capturing unrelated filters for nestjs-paginate lib
 
 [![npm version](https://img.shields.io/npm/v/nestjs-paginate-relations-filter-middleware)](https://www.npmjs.com/package/nestjs-paginate-relations-filter-middleware)
 [![npm download by month](https://img.shields.io/npm/dm/nestjs-paginate-relations-filter-middleware)](https://npmcharts.com/compare/nestjs-paginate-relations-filter-middleware?minimal=true)
 
+
 ## Description
 
 [Nestjs-Paginate-Relations-Filter-Middleware](https://github.com/mustafakendiguzel/nestjs-paginate-relations-filter-middleware) An enhanced middleware for capturing unrelated filters for nestjs-paginate lib.
+
 
 ## Install
 
 ```bash
 $ npm i nestjs-paginate-relations-filter-middleware
 ```
+
 
 ## Why was this package developed?
 
@@ -50,6 +54,7 @@ Error you will get with wrong usage with Nestjs-paginate-relations-filter-middle
 
 With this package, we are now preventing the server from pulling(500). Also you can safely send relation from swagger.
 
+
 ## Quick Start
 
 ```bash
@@ -72,6 +77,7 @@ export class AppModule {
 }
 ```
 
+
 ## How to Use In Controller
 
 ```bash 
@@ -81,6 +87,7 @@ findAll(@Paginate() query: PaginateQuery, @RelationDecorator() relation: any) {
   return this.patientGdprService.findAll(query, relation);
 }
 ```
+
 
 ## More Options
 
@@ -100,9 +107,11 @@ Send it separated by commas.
 
 Send it separated by ampersand. You can find more details with [nestjs-paginate](https://www.npmjs.com/package/nestjs-paginate) lib.
 
+
 ## Stay in touch
 
 - Author - Mustafa Kendigüzel
+
 
 ## License
 
