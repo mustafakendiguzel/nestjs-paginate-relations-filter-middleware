@@ -7,7 +7,7 @@ An enhanced middleware for capturing unrelated filters for nestjs-paginate lib
 
 ## Description
 
-[Nestjs file mimetype filter](https://github.com/mustafakendiguzel/nestjs-paginate-relations-filter-middleware) An enhanced middleware for capturing unrelated filters for nestjs-paginate lib.
+[Nestjs-Paginate-Relations-Filter-Middleware](https://github.com/mustafakendiguzel/nestjs-paginate-relations-filter-middleware) An enhanced middleware for capturing unrelated filters for nestjs-paginate lib.
 
 ## Install
 
@@ -29,7 +29,7 @@ Wrong Use: http://localhost:3000/patient-consent?filter.consentForm.id=86190245-
 Correct Use: http://localhost:3000/patient-consent?relations=consentForm&filter.consentForm.id=86190245-1246-415b-a5e8-7c5813535f25
 ```
 
-IF YOU ARE NOT USİNG THIS PACKAGE ERROR OUTPUT
+Error you will get with wrong usage without Nestjs-paginate-relations-filter-middleware
 
 ```bash
 {
@@ -38,7 +38,7 @@ IF YOU ARE NOT USİNG THIS PACKAGE ERROR OUTPUT
 }
 ```
 
-ERROR OUTPUT EXAMPLE(WITH THIS PACKAGE)
+Error you will get with wrong usage with Nestjs-paginate-relations-filter-middleware
 
 ```bash
 {
@@ -51,6 +51,22 @@ ERROR OUTPUT EXAMPLE(WITH THIS PACKAGE)
 With this package, we are now preventing the server from pulling(500). Also you can safely send relation from swagger.
 
 ## Quick Start
+
+## For multi relation Access
+
+```bash
+  http://localhost:3000/patient-consent?relations=consentForm,patient,surrogate
+```
+
+Send it separated by commas.
+
+## For multi filter Access
+
+```bash
+  http://localhost:3000/patient-consent?relations=consentForm&filter.consentForm.id=86190245-1246-415b-a5e8-7c5813535f25&filter.consentForm.status=pending&filter.code=302
+```
+
+Send it separated by ampersand. You can find more details with [nestjs-paginate](https://www.npmjs.com/package/nestjs-paginate) lib.
 
 ```bash
 # For import
