@@ -92,7 +92,7 @@ export class AppModule {
 
 Send it separated by commas.
 
-### * For multi filter Access
+### * For Multi Filter Access
 
 ```bash
   http://localhost:3000/patient-consent?relations=consentForm&filter.consentForm.id=86190245-1246-415b-a5e8-7c5813535f25&filter.consentForm.status=pending&filter.code=302
