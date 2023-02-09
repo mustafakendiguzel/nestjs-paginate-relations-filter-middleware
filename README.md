@@ -52,6 +52,14 @@ With this package, we are now preventing the server from pulling(500). Also you 
 
 ## Quick Start
 
+```bash
+# For import
+$ import { RelationFilterMiddleware,RelationDecorator } from 'nestjs-paginate-relations-filter-middleware';
+
+```
+
+## More Options
+
 ## For multi relation Access
 
 ```bash
@@ -67,12 +75,6 @@ Send it separated by commas.
 ```
 
 Send it separated by ampersand. You can find more details with [nestjs-paginate](https://www.npmjs.com/package/nestjs-paginate) lib.
-
-```bash
-# For import
-$ import { RelationFilterMiddleware,RelationDecorator } from 'nestjs-paginate-relations-filter-middleware';
-
-```
 
 ## Injecting MiddleWare
 
