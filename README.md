@@ -1,4 +1,4 @@
-# nestjs-paginate-relations-filter-middleware
+# Nestjs-Paginate-Relations-Filter-Middleware
 
 An enhanced middleware for capturing unrelated filters for nestjs-paginate lib
 
