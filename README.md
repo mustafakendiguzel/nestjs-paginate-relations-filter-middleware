@@ -1,23 +1,19 @@
 # Nestjs-Paginate-Relations-Filter-Middleware
 
-
 An enhanced middleware for capturing unrelated filters for nestjs-paginate lib
 
 [![npm version](https://img.shields.io/npm/v/nestjs-paginate-relations-filter-middleware)](https://www.npmjs.com/package/nestjs-paginate-relations-filter-middleware)
 [![npm download by month](https://img.shields.io/npm/dm/nestjs-paginate-relations-filter-middleware)](https://npmcharts.com/compare/nestjs-paginate-relations-filter-middleware?minimal=true)
 
-
 ## Description
 
 [Nestjs-Paginate-Relations-Filter-Middleware](https://github.com/mustafakendiguzel/nestjs-paginate-relations-filter-middleware) An enhanced middleware for capturing unrelated filters for nestjs-paginate lib.
-
 
 ## Install
 
 ```bash
 $ npm i nestjs-paginate-relations-filter-middleware
 ```
-
 
 ## Why was this package developed?
 
@@ -47,13 +43,18 @@ Error you will get with wrong usage with Nestjs-paginate-relations-filter-middle
 ```bash
 {
     "statusCode": 400,
-    "message": "You need to type the Relation of the Filter you type. Example; WrongLink: http://localhost:3000/patient-consent?filter.consentForm.id=86190245-1246-415b-a5e8-7c5813535f25&relations=patient, CorrectLink: http://localhost:3000/patient-consent?relations=consentForm&filter.consentForm.id=86190245-1246-415b-a5e8-7c5813535f25&relations=patient",
+    "message": {
+        "content": "You need to type the Relation of the Filter you type",
+        "usage": {
+            "wrongUrl": "http://localhost:3000/patient-consent?filter.consentForm.id=86190245-1246-415b-a5e8-7c5813535f25",
+            "correctUrl": "http://localhost:3000/patient-consent?relations=consentForm&filter.consentForm.id=86190245-1246-415b-a5e8-7c5813535f25"
+        }
+    },
     "error": "Bad Request"
 }
 ```
 
 With this package, we are now preventing the server from pulling(500). Also you can safely send relation from swagger.
-
 
 ## Quick Start
 
@@ -62,7 +63,6 @@ With this package, we are now preventing the server from pulling(500). Also you 
 $ import { RelationFilterMiddleware,RelationDecorator } from 'nestjs-paginate-relations-filter-middleware';
 
 ```
-
 
 ## Injecting MiddleWare
 
@@ -77,10 +77,9 @@ export class AppModule {
 }
 ```
 
-
 ## How to Use In Controller
 
-```bash 
+```bash
 @Get()
 @ApiQuery({ name: 'relations', required: false, type: [String], isArray: true }) // For Swagger
 findAll(@Paginate() query: PaginateQuery, @RelationDecorator() relation: any) {
@@ -88,10 +87,9 @@ findAll(@Paginate() query: PaginateQuery, @RelationDecorator() relation: any) {
 }
 ```
 
-
 ## More Options
 
-### * For Multi Relation Access
+### \* For Multi Relation Access
 
 ```bash
   http://localhost:3000/patient-consent?relations=consentForm,patient,surrogate
@@ -99,7 +97,7 @@ findAll(@Paginate() query: PaginateQuery, @RelationDecorator() relation: any) {
 
 Send it separated by commas.
 
-### * For Multi Filter Access
+### \* For Multi Filter Access
 
 ```bash
   http://localhost:3000/patient-consent?relations=consentForm&filter.consentForm.id=86190245-1246-415b-a5e8-7c5813535f25&filter.consentForm.status=pending&filter.code=302
@@ -107,11 +105,9 @@ Send it separated by commas.
 
 Send it separated by ampersand. You can find more details with [nestjs-paginate](https://www.npmjs.com/package/nestjs-paginate) lib.
 
-
 ## Stay in touch
 
 - Author - Mustafa Kendigüzel
-
 
 ## License
 
