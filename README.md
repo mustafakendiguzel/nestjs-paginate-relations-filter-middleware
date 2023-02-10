@@ -43,13 +43,7 @@ Error you will get with wrong usage with Nestjs-paginate-relations-filter-middle
 ```bash
 {
     "statusCode": 400,
-    "message": {
-        "content": "You need to type the Relation of the Filter you type",
-        "usage": {
-            "wrongUrl": "http://localhost:3000/patient-consent?filter.consentForm.id=86190245-1246-415b-a5e8-7c5813535f25",
-            "correctUrl": "http://localhost:3000/patient-consent?relations=consentForm&filter.consentForm.id=86190245-1246-415b-a5e8-7c5813535f25"
-        }
-    },
+    "message": "You need to type the Relation of the Filter you type. Example; WrongLink: http://localhost:3000/patient-consent?filter.consentForm.id=86190245-1246-415b-a5e8-7c5813535f25&relations=patient, CorrectLink: http://localhost:3000/patient-consent?relations=consentForm&filter.consentForm.id=86190245-1246-415b-a5e8-7c5813535f25&relations=patient",
     "error": "Bad Request"
 }
 ```

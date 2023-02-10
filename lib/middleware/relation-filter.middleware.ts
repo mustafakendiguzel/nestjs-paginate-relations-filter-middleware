@@ -1,4 +1,8 @@
-import { Injectable, NestMiddleware } from "@nestjs/common";
+import {
+  BadRequestException,
+  Injectable,
+  NestMiddleware,
+} from "@nestjs/common";
 import { Request, Response, NextFunction } from "express";
 
 @Injectable()
@@ -9,37 +13,29 @@ export class RelationFilterMiddleware implements NestMiddleware {
   use(req: Request, res: Response, next: NextFunction) {
     this.relations = []; // Make empty in all request
     this.filters = []; // Make empty in all Request
-    const [endPointUrl, originalUrl]: Array<string> =
-      req.originalUrl.split("?");
+    const [endPointUrl, originalUrl] = req.originalUrl.split("?");
 
     const errorMessage = (whereFilterRelation: string) => {
       const wrongUrl = `${req.protocol}://${req.get("Host")}${req.originalUrl}`;
       const correctUrl = `${req.protocol}://${req.get(
         "Host"
       )}${endPointUrl}?relations=${whereFilterRelation}&${originalUrl}`;
-      const errorMesage = {
-        statusCode: 400,
-        message: {
-          content: "You need to type the Relation of the Filter you type",
-          usage: { wrongUrl: wrongUrl, correctUrl },
-        },
-        error: "Bad Request",
-      };
+      const errorMesage = `You need to type the Relation of the Filter you type. Example; WrongLink: ${wrongUrl}, CorrectLink: ${correctUrl}`;
       return errorMesage;
     };
 
     if (originalUrl) {
-      originalUrl.split("&").map((element: string) => {
+      originalUrl.split("&").map((element) => {
         // Relations
         if (element.includes("relations=")) {
-          const [__, relation]: Array<string> = element.split("=");
+          const [__, relation] = element.split("=");
           if (relation.includes(",")) {
-            // More Than One Relation Exist
+            // More Than One Relation
             relation.split(",").map((relationElement) => {
               this.relations.push(relationElement);
             });
           } else {
-            // Only One Relation Exist
+            // Only One Relation
             this.relations.push(relation);
           }
         } else {
@@ -56,12 +52,11 @@ export class RelationFilterMiddleware implements NestMiddleware {
         if (filterSize >= minReqFilterSize) {
           const whereFilterRelation = filteredElement[1];
           if (!this.relations.includes(whereFilterRelation)) {
-            res.json(errorMessage(whereFilterRelation));
+            throw new BadRequestException(errorMessage(whereFilterRelation));
           }
         }
       });
     }
-
     next();
   }
 }
